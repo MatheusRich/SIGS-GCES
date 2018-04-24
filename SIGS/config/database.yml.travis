@@ -1,4 +1,4 @@
 test:
-  adapter: mysql2
+  adapter: postgresql
   database: SIGS_test
   username: root
