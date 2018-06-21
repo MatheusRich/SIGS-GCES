@@ -34,9 +34,17 @@ module Schedule
     shocked
   end
 
+  def find_department(dep_id)
+    Department.find(dep_id)
+  end
+
+  def find_room(room_id)
+    SchoolRoom.find(room_id)
+  end
+
   def filter_rooms_for_school_room(school_room_id, department_id)
-    department = Department.find(department_id)
-    school_room = SchoolRoom.find(school_room_id)
+    department = find_department(department_id)
+    school_room = find_room(school_room_id)
     rooms = Room.where(department: department, active: true).where(
       'capacity >= ?', school_room.vacancies
     )
